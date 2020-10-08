@@ -1,17 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react"
+import ReactDOM from "react-dom"
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function App() {
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  const firstName = "Alberto"
+  const lastName = "Cruzado"
+
+  const date = new Date()
+  const hours = date.getHours()
+  let timeOfDay
+
+  if (hours < 12) {
+    timeOfDay = "morning"
+  } else if (hours >= 12 && hours < 17) {
+    timeOfDay = "afternoon"
+  } else {
+    timeOfDay = "night"
+  }
+
+
+  return (
+    <div>
+
+      <h1>Hello {firstName + " " + lastName}</h1>
+      <h1>Hello {`${firstName} ${lastName}`}</h1>
+
+      <h1>Good {timeOfDay + " Mr. " + firstName + " " + lastName}</h1>
+      <h1>Good {`${timeOfDay} Mr. ${firstName} ${lastName}`}</h1>
+      
+    </div>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById("root"))
